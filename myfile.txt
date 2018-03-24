@@ -1,0 +1,6 @@
+B	Server2
+A	Sever1
+B	Server2
+A	Sever1
+B	Server2
+A	Sever1
