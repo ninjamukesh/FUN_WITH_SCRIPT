@@ -10,7 +10,7 @@ file="/home/vagrant/instanceIDS.txt"
 no_of_instances=0
 while IFS= read line
 do
-aws ec2 describe-tags --filters "Name=resource-id,Values=${line}" --query 'Tags[*].Value' --output text >> /home/vagrant/myfile.txt
+aws ec2 describe-tags --filters "Name=resource-id,Values=${line}" --query 'Tags[*].Value' --output text >> /home/vagrant/TAG.txt
 no_of_instances=`expr ${no_of_instances} + 1 `
 done <"$file"
 
@@ -56,7 +56,7 @@ Instance_no=$1
 for (( j=1; j <= 2; j++ ))
 do
 echo "<td>" >> /home/vagrant/htmlreport.html 
-awk "NR==$Instance_no {print \$($j)}" /home/vagrant/myfile.txt >> /home/vagrant/htmlreport.html
+awk "NR==$Instance_no {print \$($j)}" /home/vagrant/TAG.txt >> /home/vagrant/htmlreport.html
 echo "</td>" >> /home/vagrant/htmlreport.html
 done
 echo $j
